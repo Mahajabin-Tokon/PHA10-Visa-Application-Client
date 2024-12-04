@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddCoffee = () => {
+const AddVisa = () => {
   const navigate = useNavigate();
   const handleAddVisa = (event) => {
     event.preventDefault();
@@ -233,4 +233,4 @@ const AddCoffee = () => {
   );
 };
 
-export default AddCoffee;
+export default AddVisa;
