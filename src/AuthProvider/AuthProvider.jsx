@@ -33,9 +33,9 @@ import auth from "../firebase/firebase.config";
         photoURL: image,
       });
     };
-    const resetPass = (givenEmail) => {
-      return sendPasswordResetEmail(auth, givenEmail);
-    };
+    // const resetPass = (givenEmail) => {
+    //   return sendPasswordResetEmail(auth, givenEmail);
+    // };
     const handleLogout = () => {
       return signOut(auth);
     };
@@ -66,7 +66,7 @@ import auth from "../firebase/firebase.config";
       setUser,
       emailReference,
       setEmailReference,
-      resetPass,
+      
     };
   
     return (

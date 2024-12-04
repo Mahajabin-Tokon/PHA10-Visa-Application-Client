@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { FaBookOpen } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  //   const { user, handleLogout } = useContext(authContext);
+  const { user, handleLogout } = useContext(authContext);
   // const userFromFirebase = auth.currentUser
   const navlinks = (
     <>
@@ -22,7 +22,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/myVisaApplication">My Visa Application</NavLink>
       </li>
-      
     </>
   );
   return (
@@ -52,21 +51,28 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-4xl">
-          VisaPro
-        </a>
+        <a className="btn btn-ghost text-4xl">VisaPro</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
-      <div className="navbar-end gap-4">
+      {user?.email ? (
+        <div className="navbar-end gap-4">
+          <img width="50" height="50" src={user?.photoURL} alt="User Photo" />
+          <Link onClick={handleLogout} to="/login" className="btn">
+            Logout
+          </Link>
+        </div>
+      ) : (
+        <div className="navbar-end gap-4">
           <Link to="/login" className="btn">
             Login
           </Link>
           <Link to="/register" className="btn">
-            Register
+            Regsiter
           </Link>
         </div>
+      )}
     </div>
   );
 };

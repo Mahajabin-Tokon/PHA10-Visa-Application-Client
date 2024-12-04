@@ -8,6 +8,7 @@ import MyAddedVisas from "../Pages/MyAddedVisas";
 import MyVisaApplication from "../Pages/MyVisaApplication";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,15 +26,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/addVisa",
-        element: <AddVisa></AddVisa>,
+        element: (
+          <PrivateRoute>
+            <AddVisa></AddVisa>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myAddedVisas",
-        element: <MyAddedVisas></MyAddedVisas>,
+        element: (
+          <PrivateRoute>
+            <MyAddedVisas></MyAddedVisas>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myVisaApplication",
-        element: <MyVisaApplication></MyVisaApplication>,
+        element: (
+          <PrivateRoute>
+            <MyVisaApplication></MyVisaApplication>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

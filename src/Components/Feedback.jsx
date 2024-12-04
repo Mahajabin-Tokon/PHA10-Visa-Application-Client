@@ -5,7 +5,7 @@ const Feedback = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div className="flex flex-col justify-start items-start shadow-xl rounded-lg py-4 px-2">
         <p className="font-bold">John</p>
-        <p>Best website for learnig German</p>
+        <p>Best website for applying visas</p>
         <div className="rating">
           <input
             type="radio"
