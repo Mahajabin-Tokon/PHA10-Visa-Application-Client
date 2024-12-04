@@ -42,29 +42,29 @@ const AddCoffee = () => {
       applicationMethod,
     };
 
-    console.log(visa);
+    // console.log(visa);
 
     // Send data to server
-    // fetch("https://coffee-store-server-seven-gray.vercel.app/coffee", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newCoffee),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.insertedId) {
-    //       Swal.fire({
-    //         title: "Success!",
-    //         text: "New Coffee Added Successfully!",
-    //         icon: "success",
-    //         confirmButtonText: "Cool",
-    //       });
-    //       navigate("/");
-    //     }
-    //   });
+    fetch("http://localhost:5001/visas", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(visa),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "New Visa Added Successfully!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        //   navigate("/");
+        }
+      });
   };
 
   //   https://i.ibb.co/wKhp82Z/1.png
