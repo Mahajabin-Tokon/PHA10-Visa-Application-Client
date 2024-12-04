@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const AddVisa = () => {
+  const { user } = useContext(authContext);
   const navigate = useNavigate();
   const handleAddVisa = (event) => {
     event.preventDefault();
     const form = event.target;
+    const userEmail = user?.email;
     const countryImage = form.countryImage.value;
     const countryName = form.countryName.value;
     const visaType = form.visaType.value;
@@ -28,8 +31,10 @@ const AddVisa = () => {
     const fee = form.fee.value;
     const validity = form.validity.value;
     const applicationMethod = form.applicationMethod.value;
+    const applied = false;
 
     const visa = {
+      userEmail,
       countryImage,
       countryName,
       visaType,
@@ -40,6 +45,7 @@ const AddVisa = () => {
       fee,
       validity,
       applicationMethod,
+      applied,
     };
 
     // console.log(visa);
@@ -62,7 +68,7 @@ const AddVisa = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
-        //   navigate("/");
+          //   navigate("/");
         }
       });
   };
