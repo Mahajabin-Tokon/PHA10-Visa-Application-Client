@@ -7,15 +7,16 @@ const MyVisaApplication = () => {
   const { user } = useContext(authContext);
 
   const [appliedVisas, setAppliedVisas] = useState();
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        const matcheData = data.filter((eachData) => eachData.applied);
-        setAppliedVisas(matcheData);
+        const matchedData = data.filter((eachData) => eachData.applied);
+        setAppliedVisas(matchedData);
       });
-  }, []);
+  }, [search]);
 
   const handleDel = (_id) => {
     console.log(_id);
@@ -49,9 +50,17 @@ const MyVisaApplication = () => {
     });
   };
 
-  const handleSearch = () => {
-    // alert("Hello")
-  }
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const search = event.target.search.value;
+    // console.log(event.target.search.value);
+    const remaining = appliedVisas.filter(
+      (visa) => visa.countryName == search
+    );
+    setAppliedVisas(remaining);
+  };
+
+  console.log(search);
 
   return (
     <div className="max-w-6xl mx-auto my-2 px-2">
@@ -60,7 +69,7 @@ const MyVisaApplication = () => {
           <div className="w-full">
             <p>Search</p>
             <input
-              name="applicationMethod"
+              name="search"
               type="text"
               placeholder="Search"
               className="input input-bordered w-full"
