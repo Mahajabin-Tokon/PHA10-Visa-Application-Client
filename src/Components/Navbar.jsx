@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Navbar = () => {
   const { user, handleLogout, isDark, setIsDark } = useContext(authContext);
   // const userFromFirebase = auth.currentUser
-  
+
   const navlinks = (
     <>
       <li>
@@ -59,10 +60,30 @@ const Navbar = () => {
       </div>
       {user?.email ? (
         <div className="navbar-end gap-4">
-          <img width="50" height="50" src={user?.photoURL} alt="User Photo" />
-          <Link onClick={handleLogout} to="/login" className="btn">
-            Logout
-          </Link>
+          <div className="dropdown dropdown-hover">
+            <div tabIndex={0} className="m-1">
+              <img
+                className="rounded-full"
+                width="40"
+                height="40"
+                src={user?.photoURL}
+                alt="User Photo"
+              />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] p-2 shadow"
+            >
+              <li>
+                <a>{user?.displayName}</a>
+              </li>
+              <li>
+                <Link onClick={handleLogout} to="/login" className="btn">
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       ) : (
         <div className="navbar-end gap-4">
@@ -74,7 +95,9 @@ const Navbar = () => {
           </Link>
         </div>
       )}
-      <button onClick={()=>setIsDark(!isDark)} className="btn mx-2">Mode</button>
+      <button onClick={() => setIsDark(!isDark)} className="bg-gray-200 p-3 rounded-full m-1">
+        <MdOutlineDarkMode />
+      </button>
     </div>
   );
 };
