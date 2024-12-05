@@ -3,8 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const { user, handleLogout } = useContext(authContext);
+  const { user, handleLogout, isDark, setIsDark } = useContext(authContext);
   // const userFromFirebase = auth.currentUser
+  
   const navlinks = (
     <>
       <li>
@@ -25,7 +26,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 theme-controller">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,6 +74,7 @@ const Navbar = () => {
           </Link>
         </div>
       )}
+      <button onClick={()=>setIsDark(!isDark)} className="btn mx-2">Mode</button>
     </div>
   );
 };

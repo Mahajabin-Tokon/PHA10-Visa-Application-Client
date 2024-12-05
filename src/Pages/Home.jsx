@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Banner from "../Components/Banner";
 import Feedback from "../Components/Feedback";
 import Success from "../Components/Success";
 import LatestVisa from "../Components/LatestVisa";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Home = () => {
+  const { isDark } = useContext(authContext);
+  console.log(isDark);
   return (
-    <div>
+    <div className={`${isDark ? "bg-black" : ""}`}>
       <div className="max-w-6xl mx-auto my-2 px-2">
         <Banner></Banner>
       </div>
