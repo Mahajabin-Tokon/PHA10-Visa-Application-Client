@@ -8,7 +8,6 @@ const MyAddedVisas = () => {
   const { user } = useContext(authContext);
 
   const [visas, setVisas] = useState();
-  const [selected, setSelected] = useState();
   const [selectedID, setSelectedID] = useState();
   //   const { _id } = visas;
   useEffect(() => {
@@ -91,7 +90,7 @@ const MyAddedVisas = () => {
           </div>
         ))}
       </div>
-      <Modal id={selectedID} setSelected={setSelected}></Modal>
+      <Modal id={selectedID} setVisas={setVisas}></Modal>
     </div>
   );
 };

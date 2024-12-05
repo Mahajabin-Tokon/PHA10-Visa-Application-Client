@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { authContext } from "../AuthProvider/AuthProvider";
 
-const Modal = ({ id, setSelected }) => {
+const Modal = ({ id, setVisas }) => {
   //   const [visas, setVisas] = useState();
+  const { user } = useContext(authContext);
 
   const handleModaleUpdate = (event) => {
     event.preventDefault();
-    document.getElementById('my_modal_1').close()
+    document.getElementById("my_modal_1").close();
     const form = event.target;
     const countryImage = form.countryImage.value;
     const countryName = form.countryName.value;
@@ -46,27 +48,27 @@ const Modal = ({ id, setSelected }) => {
     };
     // Send data to server
     fetch(`http://localhost:5001/myAddedVisas/${id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(visa),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.modifiedCount > 0) {
-            
-            Swal.fire({
-              title: "Success!",
-              text: "Visa Updated Successfully!",
-              icon: "success",
-              confirmButtonText: "Cool",
-            });
-            // navigate("/");
-          }
-        });
-    // setSelected(visa)
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(visa),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Visa Updated Successfully!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
+            .then((res) => res.json())
+            .then((data) => setVisas(data));
+        }
+      });
   };
 
   return (
