@@ -150,6 +150,14 @@ const Modal = ({ id, setVisas, selectedData }) => {
                   <div className="space-x-2">
                     <input
                       type="checkbox"
+                    //   defaultChecked={`${
+                    //     selectedData?.requiredDoc.find(
+                    //       (doc) => doc === "Valid passport"
+                    //     )
+                    //       ? "true"
+                    //       : "false"
+                    //   }`}
+
                       id="c1"
                       name="validPassport"
                       value="Valid passport"
