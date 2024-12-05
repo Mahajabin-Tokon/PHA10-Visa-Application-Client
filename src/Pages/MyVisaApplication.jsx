@@ -31,6 +31,9 @@ const MyVisaApplication = () => {
               <p>{eachVisa.fee}</p>
               <p>{eachVisa.validity}</p>
               <p>{eachVisa.applicationMethod}</p>
+              <p>{eachVisa.applied.email}</p>
+              <p>{eachVisa.applied.firstName} {eachVisa.applied.lastName}</p>
+              <p>{eachVisa.applied.date}</p>
               <div className="card-actions justify-end">
                 <Link className="btn">Cancel</Link>
               </div>
