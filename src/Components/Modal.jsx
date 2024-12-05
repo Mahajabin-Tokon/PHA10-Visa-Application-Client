@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { authContext } from "../AuthProvider/AuthProvider";
 
-const Modal = ({ id, setVisas }) => {
-  //   const [visas, setVisas] = useState();
+const Modal = ({ id, setVisas, selectedData }) => {
   const { user } = useContext(authContext);
 
   const handleModaleUpdate = (event) => {
@@ -83,7 +82,6 @@ const Modal = ({ id, setVisas }) => {
 
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box w-full">
-          <p>{id}</p>
           <form
             className="w-full mx-auto bg-[#F4F3F0] rounded-lg py-10"
             onSubmit={handleModaleUpdate}
@@ -93,6 +91,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Country Image</p>
                 <input
+                  defaultValue={selectedData?.countryImage}
                   name="countryImage"
                   type="text"
                   placeholder="Country Image"
@@ -106,6 +105,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Country Name</p>
                 <input
+                  defaultValue={selectedData?.countryName}
                   name="countryName"
                   type="text"
                   placeholder="Country Name"
@@ -119,6 +119,7 @@ const Modal = ({ id, setVisas }) => {
                 <p>Visa Type</p>
                 <select
                   className="select select-bordered w-full"
+                  defaultValue={selectedData?.visaType}
                   name="visaType"
                 >
                   <option value="Tourist visa">Tourist visa</option>
@@ -133,6 +134,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Processing Time</p>
                 <input
+                  defaultValue={selectedData?.processingTime}
                   name="processingTime"
                   type="text"
                   placeholder="Processing Time"
@@ -181,6 +183,7 @@ const Modal = ({ id, setVisas }) => {
                 <p>Description</p>
                 <input
                   name="description"
+                  defaultValue={selectedData?.description}
                   type="text"
                   placeholder="Description"
                   className="input input-bordered w-full"
@@ -192,6 +195,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Age</p>
                 <input
+                  defaultValue={selectedData?.age}
                   name="age"
                   type="number"
                   placeholder="Age"
@@ -204,6 +208,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Fee</p>
                 <input
+                  defaultValue={selectedData?.fee}
                   name="fee"
                   type="number"
                   placeholder="Fee"
@@ -216,6 +221,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Validity</p>
                 <input
+                  defaultValue={selectedData?.validity}
                   name="validity"
                   type="text"
                   placeholder="Validity"
@@ -228,6 +234,7 @@ const Modal = ({ id, setVisas }) => {
               <div className="w-full">
                 <p>Application Method</p>
                 <input
+                  defaultValue={selectedData?.applicationMethod}
                   name="applicationMethod"
                   type="text"
                   placeholder="Application Method"

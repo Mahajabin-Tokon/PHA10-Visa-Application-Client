@@ -9,6 +9,7 @@ const MyAddedVisas = () => {
 
   const [visas, setVisas] = useState();
   const [selectedID, setSelectedID] = useState();
+  const [selectedData, setSeletedData] = useState();
   //   const { _id } = visas;
   useEffect(() => {
     fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
@@ -17,8 +18,11 @@ const MyAddedVisas = () => {
   }, []);
 
   const handleUpdate = (_id) => {
+    fetch(`http://localhost:5001/visaDetails/${_id}`)
+      .then((res) => res.json())
+      .then((data) => setSeletedData(data));
     document.getElementById("my_modal_1").showModal();
-    setSelectedID(_id)
+    setSelectedID(_id);
   };
 
   const handleDelete = (_id) => {
@@ -90,7 +94,7 @@ const MyAddedVisas = () => {
           </div>
         ))}
       </div>
-      <Modal id={selectedID} setVisas={setVisas}></Modal>
+      <Modal id={selectedID} setVisas={setVisas} selectedData={selectedData}></Modal>
     </div>
   );
 };
