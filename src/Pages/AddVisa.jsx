@@ -31,7 +31,7 @@ const AddVisa = () => {
     const fee = form.fee.value;
     const validity = form.validity.value;
     const applicationMethod = form.applicationMethod.value;
-    const applied = false;
+    const applied = [];
 
     const visa = {
       userEmail,

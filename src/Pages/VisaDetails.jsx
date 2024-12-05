@@ -21,11 +21,12 @@ const VisaDetails = () => {
     const lastName = form.lastName.value;
     const date = form.date.value;
     const fee = form.fee.value;
-    const appliedInfo = { email, firstName, lastName, date, fee };
+    const visaID = _id
+    const appliedInfo = { visaID, email, firstName, lastName, date, fee };
     console.log(appliedInfo);
 
-    fetch(`http://localhost:5001/myAppliedVisas/${_id}`, {
-      method: "PUT",
+    fetch(`http://localhost:5001/myAddedVisas/${_id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
