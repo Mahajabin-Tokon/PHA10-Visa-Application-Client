@@ -49,8 +49,32 @@ const MyVisaApplication = () => {
     });
   };
 
+  const handleSearch = () => {
+    // alert("Hello")
+  }
+
   return (
     <div className="max-w-6xl mx-auto my-2 px-2">
+      <form onSubmit={handleSearch}>
+        <div className="py-2">
+          <div className="w-full">
+            <p>Search</p>
+            <input
+              name="applicationMethod"
+              type="text"
+              placeholder="Search"
+              className="input input-bordered w-full"
+            />
+          </div>
+        </div>
+        <div className="py-4">
+          <input
+            type="submit"
+            value="Search"
+            className="btn w-full bg-cyan-300"
+          />
+        </div>
+      </form>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-5 ">
         {appliedVisas?.map((eachVisa) => (
           <div className="card card-compact bg-base-100 shadow-xl">
