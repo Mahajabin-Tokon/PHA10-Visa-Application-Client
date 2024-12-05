@@ -2,16 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Modal from "../Components/Modal";
 
 const MyAddedVisas = () => {
   const { user } = useContext(authContext);
+
   const [visas, setVisas] = useState();
-//   const { _id } = visas;
+  const [selected, setSelected] = useState();
+  const [selectedID, setSelectedID] = useState();
+  //   const { _id } = visas;
   useEffect(() => {
     fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setVisas(data));
   }, []);
+
+  const handleUpdate = (_id) => {
+    document.getElementById("my_modal_1").showModal();
+    setSelectedID(_id)
+  };
 
   const handleDelete = (_id) => {
     // console.log(_id);
@@ -37,8 +46,8 @@ const MyAddedVisas = () => {
                 text: "Your coffee has been deleted.",
                 icon: "success",
               });
-              const remaining = visas.filter(visa => visa._id != _id)
-              setVisas(remaining)
+              const remaining = visas.filter((visa) => visa._id != _id);
+              setVisas(remaining);
             }
           });
       }
@@ -61,7 +70,12 @@ const MyAddedVisas = () => {
               <p>{eachVisa.validity}</p>
               <p>{eachVisa.applicationMethod}</p>
               <div className="card-actions justify-end">
-                <Link to={`/visaDetails/${eachVisa._id}`} className="btn">
+                <Link
+                  onClick={() => {
+                    handleUpdate(eachVisa._id);
+                  }}
+                  className="btn"
+                >
                   Update
                 </Link>
                 <Link
@@ -77,6 +91,7 @@ const MyAddedVisas = () => {
           </div>
         ))}
       </div>
+      <Modal id={selectedID} setSelected={setSelected}></Modal>
     </div>
   );
 };

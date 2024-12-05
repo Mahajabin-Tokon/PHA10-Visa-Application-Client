@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/allVisas",
         element: <AllVisas></AllVisas>,
-        loader: ()=>fetch("http://localhost:5001/visas")
+        loader: () => fetch("http://localhost:5001/visas"),
       },
       {
         path: "/addVisa",
@@ -33,7 +33,6 @@ const router = createBrowserRouter([
             <AddVisa></AddVisa>
           </PrivateRoute>
         ),
-        
       },
       {
         path: "/myAddedVisas",
@@ -43,6 +42,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      // {
+      //   path: "/myAddedVisas/:id",
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyAddedVisas></MyAddedVisas>
+      //     </PrivateRoute>
+      //   ),
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5001/myAddedVisas/${params.id}`),
+      // },
       {
         path: "/myVisaApplication",
         element: (
@@ -58,7 +67,8 @@ const router = createBrowserRouter([
             <VisaDetails></VisaDetails>
           </PrivateRoute>
         ),
-        loader: ({params})=>fetch(`http://localhost:5001/visaDetails/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/visaDetails/${params.id}`),
       },
       {
         path: "/login",
