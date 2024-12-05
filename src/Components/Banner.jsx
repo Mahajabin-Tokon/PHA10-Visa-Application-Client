@@ -5,7 +5,7 @@ import bp3 from "../assets/bp3.jpg"
 
 const Banner = () => {
   return (
-    <div className="carousel w-full">
+    <div className="carousel w-full rounded-3xl">
         
       <div id="slide1" className="carousel-item relative w-full">
         <img

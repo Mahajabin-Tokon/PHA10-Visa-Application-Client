@@ -3,7 +3,7 @@ import React from "react";
 const Feedback = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div className="flex flex-col justify-start items-start shadow-xl rounded-lg py-4 px-2">
+      <div className="flex flex-col justify-start items-start shadow-xl rounded-3xl py-4 px-2">
         <p className="font-bold">John</p>
         <p>Best website for applying visas</p>
         <div className="rating">
@@ -16,7 +16,6 @@ const Feedback = () => {
             type="radio"
             name="rating-2"
             className="mask mask-star-2 bg-orange-400"
-            
           />
           <input
             type="radio"
@@ -36,7 +35,7 @@ const Feedback = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col justify-start items-start shadow-xl rounded-lg py-4 px-2">
+      <div className="flex flex-col justify-start items-start shadow-xl rounded-3xl py-4 px-2">
         <p className="font-bold">Mary</p>
         <p>Amazing!</p>
         <div className="rating">
@@ -49,7 +48,6 @@ const Feedback = () => {
             type="radio"
             name="rating-2"
             className="mask mask-star-2 bg-orange-400"
-            
           />
           <input
             type="radio"
@@ -66,11 +64,10 @@ const Feedback = () => {
             type="radio"
             name="rating-2"
             className="mask mask-star-2 bg-orange-400"
-            
           />
         </div>
       </div>
-      <div className="flex flex-col justify-start items-start shadow-xl rounded-lg py-4 px-2">
+      <div className="flex flex-col justify-start items-start shadow-xl rounded-3xl py-4 px-2">
         <p className="font-bold">David</p>
         <p>Easy to use, convenient and affordable</p>
         <div className="rating">
@@ -83,7 +80,6 @@ const Feedback = () => {
             type="radio"
             name="rating-2"
             className="mask mask-star-2 bg-orange-400"
-            
           />
           <input
             type="radio"
@@ -103,7 +99,6 @@ const Feedback = () => {
           />
         </div>
       </div>
-      
     </div>
   );
 };

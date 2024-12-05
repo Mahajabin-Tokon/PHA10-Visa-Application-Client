@@ -79,7 +79,7 @@ const AddVisa = () => {
     <div className="py-10">
       <div className="text-center font-rancho text-4xl my-10">Add New Visa</div>
       <form
-        className="w-2/3 mx-auto bg-[#F4F3F0] rounded-lg py-10"
+        className="w-2/3 mx-auto bg-[#F4F3F0] py-10 rounded-3xl"
         onSubmit={handleAddVisa}
       >
         {/* Field 1 */}
