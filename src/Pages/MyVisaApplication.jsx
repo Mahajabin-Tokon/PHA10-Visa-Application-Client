@@ -4,17 +4,16 @@ import { authContext } from "../AuthProvider/AuthProvider";
 
 const MyVisaApplication = () => {
   const { user } = useContext(authContext);
-  const [visas, setVisas] = useState();
+
   const [appliedVisas, setAppliedVisas] = useState();
 
   useEffect(() => {
     fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
       .then((res) => res.json())
-      .then((data) => setVisas(data));
-
-    fetch(`http://localhost:5001/myAppliedVisas`)
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        const matcheData = data.filter((eachData) => eachData.applied);
+        setAppliedVisas(matcheData);
+      });
   }, []);
 
   return (
