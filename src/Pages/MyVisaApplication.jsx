@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyVisaApplication = () => {
   const { user } = useContext(authContext);
@@ -15,6 +16,38 @@ const MyVisaApplication = () => {
         setAppliedVisas(matcheData);
       });
   }, []);
+
+  const handleDel = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5001/myAddedVisas/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your coffee has been deleted.",
+                icon: "success",
+              });
+              const remaining = appliedVisas.filter((visa) => visa._id != _id);
+              setAppliedVisas(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="max-w-6xl mx-auto my-2 px-2">
@@ -32,10 +65,19 @@ const MyVisaApplication = () => {
               <p>{eachVisa.validity}</p>
               <p>{eachVisa.applicationMethod}</p>
               <p>{eachVisa.applied.email}</p>
-              <p>{eachVisa.applied.firstName} {eachVisa.applied.lastName}</p>
+              <p>
+                {eachVisa.applied.firstName} {eachVisa.applied.lastName}
+              </p>
               <p>{eachVisa.applied.date}</p>
               <div className="card-actions justify-end">
-                <Link className="btn">Cancel</Link>
+                <Link
+                  onClick={() => {
+                    handleDel(eachVisa._id);
+                  }}
+                  className="btn"
+                >
+                  Cancel
+                </Link>
               </div>
             </div>
           </div>
