@@ -150,13 +150,19 @@ const Modal = ({ id, setVisas, selectedData }) => {
                   <div className="space-x-2">
                     <input
                       type="checkbox"
+
+                    //   {selectedData.requiredDoc[0]}
+
                     //   defaultChecked={`${
                     //     selectedData?.requiredDoc.find(
                     //       (doc) => doc === "Valid passport"
                     //     )
-                    //       ? "true"
+                    //       ? "checked"
                     //       : "false"
                     //   }`}
+                    //   onChange={(e) => {
+                    //     e.target.checked;
+                    //   }}
 
                       id="c1"
                       name="validPassport"
