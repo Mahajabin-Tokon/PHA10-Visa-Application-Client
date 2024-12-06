@@ -2,7 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { authContext } from "../AuthProvider/AuthProvider";
 
-const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, applicationForm, setApplicationForm, recentPhoto, setRecentPhoto }) => {
+const Modal = ({
+  id,
+  setVisas,
+  selectedData,
+  validPassport,
+  setValidPassport,
+  applicationForm,
+  setApplicationForm,
+  recentPhoto,
+  setRecentPhoto,
+}) => {
   const { user } = useContext(authContext);
   // const v = selectedData?.requiredDoc.find(
   //   (doc) => doc === "Valid passport"
@@ -13,13 +23,11 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
   // const r = selectedData?.requiredDoc.find(
   //   (doc) => doc === "Recent passport-sized photograph"
   // );
-  
 
-  // console.log(validPassport, applicationForm, recentPhoto);
+  console.log(validPassport, applicationForm, recentPhoto);
 
   const handleModaleUpdate = (event) => {
     event.preventDefault();
-    
 
     document.getElementById("my_modal_1").close();
     const form = event.target;
@@ -29,15 +37,19 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
     const processingTime = form.processingTime.value;
 
     let requiredDoc = [];
-    document.querySelectorAll('[type="checkbox"]').forEach((box) => {
-      if (box.checked) {
-        requiredDoc.push(box.value);
-      }
-    });
+    // document.querySelectorAll('[id="checkbox"]').forEach((box) => {
+    //   if (box) {
+    //     requiredDoc.push(box.value);
+    //   }
+    // });
 
-    // const validPassport = form.validPassport.value;
-    // const visaApplication = form.visaApplication.value;
-    // const recentPhoto = form.recentPhoto.value;
+    const validPassport = form.validPassport.value;
+    const visaApplication = form.applicationForm.value;
+    const recentPhoto = form.recentPhoto.value;
+
+    requiredDoc.push(validPassport);
+    requiredDoc.push(visaApplication);
+    requiredDoc.push(recentPhoto);
 
     const description = form.description.value;
     const age = form.age.value;
@@ -77,7 +89,9 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
             icon: "success",
             confirmButtonText: "Cool",
           });
-          fetch(`https://visa-server-five.vercel.app/myAddedVisas?email=${user.email}`)
+          fetch(
+            `https://visa-server-five.vercel.app/myAddedVisas?email=${user.email}`
+          )
             .then((res) => res.json())
             .then((data) => setVisas(data));
         }
@@ -86,14 +100,6 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
 
   return (
     <div>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      {/* <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_1").showModal()}
-      >
-        open modal
-      </button> */}
-
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box w-full">
           <form
@@ -159,46 +165,37 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
             {/* Field 5 */}
             <div className="px-10 py-2">
               <div className="w-full">
-                <p>Required Documents</p>
+                <p className="py-2">Required Documents</p>
                 <div className="flex flex-col justify-between">
                   <div className="space-x-2">
+                    <p>Valid Passport</p>
                     <input
-                      type="checkbox"
-                      checked={validPassport}
-                      onChange={(e) => {
-                        setValidPassport(e.target.checked);
-                      }}
-                      id="c1"
+                      defaultValue={selectedData?.requiredDoc[0]}
                       name="validPassport"
-                      value="Valid passport"
+                      type="text"
+                      placeholder="Valid Passport"
+                      className="input input-bordered w-full"
                     />
-                    <label for="c1">Valid passport</label>
                   </div>
                   <div className="space-x-2">
+                  <p>Applicaion Form</p>
                     <input
-                      type="checkbox"
-                      checked={applicationForm}
-                      onChange={(e) => {
-                        setApplicationForm(e.target.checked);
-                      }}
-                      id="c2"
-                      name="visaApplication"
-                      value="Visa application form"
+                      defaultValue={selectedData?.requiredDoc[1]}
+                      name="applicationForm"
+                      type="text"
+                      placeholder="Applicaion Form"
+                      className="input input-bordered w-full"
                     />
-                    <label for="c2">Visa application form</label>
                   </div>
                   <div className="space-x-2">
+                  <p>Recent Passport Photo</p>
                     <input
-                      type="checkbox"
-                      checked={recentPhoto}
-                      onChange={(e) => {
-                        setRecentPhoto(e.target.checked);
-                      }}
-                      id="c3"
+                      defaultValue={selectedData?.requiredDoc[2]}
                       name="recentPhoto"
-                      value="Recent passport-sized photograph"
+                      type="text"
+                      placeholder="Recent Passport Photo"
+                      className="input input-bordered w-full"
                     />
-                    <label for="c3">Recent passport-sized photograph</label>
                   </div>
                 </div>
               </div>

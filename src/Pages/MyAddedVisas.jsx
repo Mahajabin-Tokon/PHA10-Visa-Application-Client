@@ -27,15 +27,19 @@ const MyAddedVisas = () => {
       .then((data) => setSeletedData(data));
     setValidPassport(
       selectedData?.requiredDoc.find((doc) => doc === "Valid passport")
+      
     );
+    
     setApplicationForm(
       selectedData?.requiredDoc.find((doc) => doc === "Visa application form")
     );
+    
     setRecentPhoto(
       selectedData?.requiredDoc.find(
         (doc) => doc === "Recent passport-sized photograph"
       )
     );
+    
     document.getElementById("my_modal_1").showModal();
     setSelectedID(_id);
   };
