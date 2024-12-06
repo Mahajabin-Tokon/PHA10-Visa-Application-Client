@@ -2,11 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { authContext } from "../AuthProvider/AuthProvider";
 
-const Modal = ({ id, setVisas, selectedData }) => {
+const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, applicationForm, setApplicationForm, recentPhoto, setRecentPhoto }) => {
   const { user } = useContext(authContext);
+  // const v = selectedData?.requiredDoc.find(
+  //   (doc) => doc === "Valid passport"
+  // );
+  // const a = selectedData?.requiredDoc.find(
+  //   (doc) => doc === "Visa application form"
+  // );
+  // const r = selectedData?.requiredDoc.find(
+  //   (doc) => doc === "Recent passport-sized photograph"
+  // );
+  
+
+  // console.log(validPassport, applicationForm, recentPhoto);
 
   const handleModaleUpdate = (event) => {
     event.preventDefault();
+    
+
     document.getElementById("my_modal_1").close();
     const form = event.target;
     const countryImage = form.countryImage.value;
@@ -150,20 +164,10 @@ const Modal = ({ id, setVisas, selectedData }) => {
                   <div className="space-x-2">
                     <input
                       type="checkbox"
-
-                    //   {selectedData.requiredDoc[0]}
-
-                    //   defaultChecked={`${
-                    //     selectedData?.requiredDoc.find(
-                    //       (doc) => doc === "Valid passport"
-                    //     )
-                    //       ? "checked"
-                    //       : "false"
-                    //   }`}
-                    //   onChange={(e) => {
-                    //     e.target.checked;
-                    //   }}
-
+                      checked={validPassport}
+                      onChange={(e) => {
+                        setValidPassport(e.target.checked);
+                      }}
                       id="c1"
                       name="validPassport"
                       value="Valid passport"
@@ -173,6 +177,10 @@ const Modal = ({ id, setVisas, selectedData }) => {
                   <div className="space-x-2">
                     <input
                       type="checkbox"
+                      checked={applicationForm}
+                      onChange={(e) => {
+                        setApplicationForm(e.target.checked);
+                      }}
                       id="c2"
                       name="visaApplication"
                       value="Visa application form"
@@ -182,6 +190,10 @@ const Modal = ({ id, setVisas, selectedData }) => {
                   <div className="space-x-2">
                     <input
                       type="checkbox"
+                      checked={recentPhoto}
+                      onChange={(e) => {
+                        setRecentPhoto(e.target.checked);
+                      }}
                       id="c3"
                       name="recentPhoto"
                       value="Recent passport-sized photograph"
@@ -261,7 +273,7 @@ const Modal = ({ id, setVisas, selectedData }) => {
               <input
                 type="submit"
                 value="Update Visa"
-                className="btn w-full bg-cyan-300"
+                className="btn w-full bg-success"
               />
             </div>
           </form>
