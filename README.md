@@ -1,8 +1,25 @@
-# React + Vite
+# Project name:
+Visa Proo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Purpose:
+To help users find, add and apply to multiple visas
 
-Currently, two official plugins are available:
+# Live URL:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# Key features:
+- Users can register their own profile and login
+- Users can add and save the the visas they are interested in
+- Users can apply to individual visas and cancel if necessary 
+- Users can update & delete visas
+- Users can filter and search visas
+
+# Npm packages used:
+1. sweetalert2
+2. firebase
+3. react
+4. react-awesome-reveal
+5. react-dom
+6. react-icons
+7. react-router-dom
+8. react-simple-typewriter
