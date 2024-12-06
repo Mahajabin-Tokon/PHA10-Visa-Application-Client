@@ -60,7 +60,7 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
       applied,
     };
     // Send data to server
-    fetch(`http://localhost:5001/myAddedVisas/${id}`, {
+    fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -77,7 +77,7 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
             icon: "success",
             confirmButtonText: "Cool",
           });
-          fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
+          fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => setVisas(data));
         }

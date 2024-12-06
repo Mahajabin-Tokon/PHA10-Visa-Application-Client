@@ -24,7 +24,7 @@ const VisaDetails = () => {
     const appliedInfo = { visaID, email, firstName, lastName, date, fee };
     console.log(appliedInfo);
 
-    fetch(`http://localhost:5001/myAddedVisas/${_id}`, {
+    fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -51,7 +51,7 @@ const AddVisa = () => {
     // console.log(visa);
 
     // Send data to server
-    fetch("http://localhost:5001/visas", {
+    fetch("https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/visas", {
       method: "POST",
       headers: {
         "content-type": "application/json",

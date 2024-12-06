@@ -16,13 +16,13 @@ const MyAddedVisas = () => {
   const [recentPhoto, setRecentPhoto] = useState();
   //   const { _id } = visas;
   useEffect(() => {
-    fetch(`http://localhost:5001/myAddedVisas?email=${user.email}`)
+    fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setVisas(data));
   }, []);
 
   const handleUpdate = (_id) => {
-    fetch(`http://localhost:5001/visaDetails/${_id}`)
+    fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/visaDetails/${_id}`)
       .then((res) => res.json())
       .then((data) => setSeletedData(data));
     setValidPassport(
@@ -52,7 +52,7 @@ const MyAddedVisas = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5001/myAddedVisas/${_id}`, {
+        fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
