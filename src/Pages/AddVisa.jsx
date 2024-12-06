@@ -231,7 +231,7 @@ const AddVisa = () => {
           <input
             type="submit"
             value="Add Visa"
-            className="btn w-full bg-cyan-300"
+            className="btn w-full btn-success"
           />
         </div>
       </form>

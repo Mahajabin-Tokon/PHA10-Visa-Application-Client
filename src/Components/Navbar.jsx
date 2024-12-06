@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
-import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const Navbar = () => {
   const { user, handleLogout, isDark, setIsDark } = useContext(authContext);
@@ -64,8 +64,8 @@ const Navbar = () => {
             <div tabIndex={0} className="m-1">
               <img
                 className="rounded-full"
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 src={user?.photoURL}
                 alt="User Photo"
               />
@@ -95,8 +95,11 @@ const Navbar = () => {
           </Link>
         </div>
       )}
-      <button onClick={() => setIsDark(!isDark)} className="bg-gray-200 p-3 rounded-full m-1">
-        <MdOutlineDarkMode />
+      <button
+        onClick={() => setIsDark(!isDark)}
+        className="bg-gray-200 p-3 rounded-full m-1"
+      >
+        {isDark ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
       </button>
     </div>
   );

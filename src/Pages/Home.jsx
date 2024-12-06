@@ -15,20 +15,20 @@ const Home = () => {
   });
   return (
     <Fade delay={500}>
-      <div className={`${isDark ? "bg-black" : ""}`}>
+      <div className={`${isDark ? "bg-gray-800 text-gray-50" : ""}`}>
         <div className="max-w-6xl mx-auto my-2 px-2">
           <div className="text-center text-4xl py-10">Welcome to {text}</div>
           <Banner></Banner>
         </div>
-        <div className="max-w-6xl mx-auto my-2 px-2 py-10">
-          <div className="text-center text-4xl">Latest Visas</div>
+        <div className="max-w-6xl mx-auto my-2 px-2">
+          <div className="text-center text-4xl py-10">Latest Visas</div>
           <LatestVisa></LatestVisa>
         </div>
         <div className="max-w-6xl mx-auto my-2 px-2">
           <Success></Success>
         </div>
-        <div className="max-w-6xl mx-auto my-10 px-2">
-          <div className="text-center text-4xl">Feedback</div>
+        <div className="max-w-6xl mx-auto pb-10 px-2">
+          <div className="text-center text-4xl py-10 ">Feedback</div>
           <Feedback></Feedback>
         </div>
       </div>

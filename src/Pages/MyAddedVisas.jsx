@@ -77,7 +77,7 @@ const MyAddedVisas = () => {
                   onClick={() => {
                     handleUpdate(eachVisa._id);
                   }}
-                  className="btn"
+                  className="btn btn-success"
                 >
                   Update
                 </Link>
@@ -85,7 +85,7 @@ const MyAddedVisas = () => {
                   onClick={() => {
                     handleDelete(eachVisa._id);
                   }}
-                  className="btn"
+                  className="btn btn-error"
                 >
                   Delete
                 </Link>

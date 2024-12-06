@@ -7,7 +7,6 @@ const VisaDetails = () => {
   const { user } = useContext(authContext);
   const data = useLoaderData();
   const { _id } = data;
-
   const handleApplyModal = () => {
     document.getElementById("applyModal").showModal();
   };
@@ -42,6 +41,7 @@ const VisaDetails = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+          
         }
       });
   };
@@ -50,21 +50,24 @@ const VisaDetails = () => {
     <div className="max-w-6xl mx-auto my-2 px-2 py-10">
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure className="h-80">
-          <img src={data.countryImage} alt="Country Image" />
+          <img src={data?.countryImage} alt="Country Image" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{data.countryName}</h2>
-          <p>{data.visaType}</p>
-          <p>{data.processingTime}</p>
-          {data.requiredDoc.map((eachData) => (
+          <h2 className="card-title">{data?.countryName}</h2>
+          <p>{data?.visaType}</p>
+          <p>{data?.processingTime}</p>
+          {data?.requiredDoc.map((eachData) => (
             <p>{eachData}</p>
           ))}
-          <p>{data.description}</p>
-          <p>{data.age}</p>
-          <p>{data.fee}</p>
-          <p>{data.validity}</p>
-          <p>{data.applicationMethod}</p>
-          <p>{data.applied}</p>
+          <p>{data?.description}</p>
+          <p>{data?.age}</p>
+          <p>{data?.fee}</p>
+          <p>{data?.validity}</p>
+          <p>{data?.applicationMethod}</p>
+          <p>{data?.applied.date}</p>
+          <p>{data?.applied.firstName}</p>
+          <p>{data?.applied.lastName}</p>
+          <p>{data?.applied.email}</p>
           <div className="card-actions justify-end">
             <button onClick={handleApplyModal} className="btn">
               Apply for Visa
@@ -148,7 +151,7 @@ const VisaDetails = () => {
               <input
                 type="submit"
                 value="Apply"
-                className="btn w-full bg-cyan-300"
+                className="btn w-full btn-success"
               />
             </div>
           </form>

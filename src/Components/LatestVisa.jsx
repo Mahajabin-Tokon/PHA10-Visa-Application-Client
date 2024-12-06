@@ -12,7 +12,7 @@ const LatestVisa = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-5 text-black">
         {visas?.map((eachVisa) => (
           <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
@@ -26,13 +26,16 @@ const LatestVisa = () => {
               <p>{eachVisa.validity}</p>
               <p>{eachVisa.applicationMethod}</p>
               <div className="card-actions justify-end">
-                <Link to={`/visaDetails/${eachVisa._id}`} className="btn">See Detials</Link>
+                <Link to={`/visaDetails/${eachVisa._id}`} className="btn">
+                  See Detials
+                </Link>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <Link to="/allVisas" className="btn w-full my-10">
+
+      <Link to="/allVisas" className="btn w-full mb-20">
         See All Visas
       </Link>
     </>

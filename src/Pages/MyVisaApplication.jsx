@@ -80,7 +80,7 @@ const MyVisaApplication = () => {
           <input
             type="submit"
             value="Search"
-            className="btn w-full bg-cyan-300"
+            className="btn w-full btn-success"
           />
         </div>
       </form>
@@ -107,7 +107,7 @@ const MyVisaApplication = () => {
                   onClick={() => {
                     handleDel(eachVisa._id);
                   }}
-                  className="btn"
+                  className="btn btn-error"
                 >
                   Cancel
                 </Link>
