@@ -29,7 +29,7 @@ const Home = () => {
           <Success></Success>
         </div>
         <div className="max-w-6xl mx-auto pb-10 px-2">
-          <div className="text-center text-4xl py-10 ">Feedback</div>
+          <div className="text-center text-4xl py-10 ">Our Previous Clients</div>
           <Feedback></Feedback>
         </div>
       </div>
