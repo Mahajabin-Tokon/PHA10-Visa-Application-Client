@@ -52,8 +52,7 @@ const MyVisaApplication = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    setSearch(event.target.search.value);
-    // const search = event.target.search.value;
+    const search = event.target.search.value;
     // console.log(event.target.search.value);
     const remaining = appliedVisas.filter(
       (visa) => visa.countryName == search
