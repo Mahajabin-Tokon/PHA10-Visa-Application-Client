@@ -24,7 +24,7 @@ const VisaDetails = () => {
     const appliedInfo = { visaID, email, firstName, lastName, date, fee };
     console.log(appliedInfo);
 
-    fetch(`https://visa-server-tau.vercel.app/myAddedVisas/${_id}`, {
+    fetch(`https://visa-server-five.vercel.app/myAddedVisas/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

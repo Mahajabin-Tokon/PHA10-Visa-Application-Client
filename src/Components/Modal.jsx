@@ -60,7 +60,7 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
       applied,
     };
     // Send data to server
-    fetch(`https://visa-server-tau.vercel.app/myAddedVisas/${id}`, {
+    fetch(`https://visa-server-five.vercel.app/myAddedVisas/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -77,7 +77,7 @@ const Modal = ({ id, setVisas, selectedData, validPassport, setValidPassport, ap
             icon: "success",
             confirmButtonText: "Cool",
           });
-          fetch(`https://visa-server-tau.vercel.app/myAddedVisas?email=${user.email}`)
+          fetch(`https://visa-server-five.vercel.app/myAddedVisas?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => setVisas(data));
         }

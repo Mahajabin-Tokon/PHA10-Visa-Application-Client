@@ -51,7 +51,7 @@ const AddVisa = () => {
     // console.log(visa);
 
     // Send data to server
-    fetch("https://visa-server-tau.vercel.app/visas", {
+    fetch("https://visa-server-five.vercel.app/visas", {
       method: "POST",
       headers: {
         "content-type": "application/json",
