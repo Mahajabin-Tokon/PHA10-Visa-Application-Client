@@ -167,7 +167,7 @@ const Modal = ({
               <div className="w-full">
                 <p className="py-2">Required Documents</p>
                 <div className="flex flex-col justify-between">
-                  <div className="space-x-2">
+                  <div className="">
                     <p>Valid Passport</p>
                     <input
                       defaultValue={selectedData?.requiredDoc[0]}
@@ -177,8 +177,8 @@ const Modal = ({
                       className="input input-bordered w-full"
                     />
                   </div>
-                  <div className="space-x-2">
-                  <p>Applicaion Form</p>
+                  <div className="">
+                    <p>Applicaion Form</p>
                     <input
                       defaultValue={selectedData?.requiredDoc[1]}
                       name="applicationForm"
@@ -187,8 +187,8 @@ const Modal = ({
                       className="input input-bordered w-full"
                     />
                   </div>
-                  <div className="space-x-2">
-                  <p>Recent Passport Photo</p>
+                  <div className="">
+                    <p>Recent Passport Photo</p>
                     <input
                       defaultValue={selectedData?.requiredDoc[2]}
                       name="recentPhoto"
