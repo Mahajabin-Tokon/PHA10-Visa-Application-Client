@@ -10,7 +10,7 @@ const MyVisaApplication = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas?email=${user.email}`)
+    fetch(`https://visa-server-tau.vercel.app/myAddedVisas?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         const matchedData = data.filter((eachData) => eachData.applied);
@@ -30,7 +30,7 @@ const MyVisaApplication = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas/${_id}`, {
+        fetch(`https://visa-server-tau.vercel.app/myAddedVisas/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -46,7 +46,7 @@ const AllVisas = () => {
         </ul>
       </details>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
-        {visas?.map((eachVisa) => (
+        {visas && visas?.map((eachVisa) => (
           <div className="card card-compact bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title">{eachVisa.countryName}</h2>

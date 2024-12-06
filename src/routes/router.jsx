@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/allVisas",
         element: <AllVisas></AllVisas>,
-        loader: () => fetch("https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/visas"),
+        loader: () => fetch("https://visa-server-tau.vercel.app/visas"),
       },
       {
         path: "/addVisa",
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       //     </PrivateRoute>
       //   ),
       //   loader: ({ params }) =>
-      //     fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/myAddedVisas/${params.id}`),
+      //     fetch(`https://visa-server-tau.vercel.app/myAddedVisas/${params.id}`),
       // },
       {
         path: "/myVisaApplication",
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://visa-server-nuwa1irkm-mahajabin-tokons-projects.vercel.app/visaDetails/${params.id}`),
+          fetch(`https://visa-server-tau.vercel.app/visaDetails/${params.id}`),
       },
       {
         path: "/login",
