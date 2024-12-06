@@ -25,6 +25,7 @@ const Home = () => {
           <LatestVisa></LatestVisa>
         </div>
         <div className="max-w-6xl mx-auto my-2 px-2">
+          <div className="text-center text-4xl pb-10 ">Meet our Team</div>
           <Success></Success>
         </div>
         <div className="max-w-6xl mx-auto pb-10 px-2">
