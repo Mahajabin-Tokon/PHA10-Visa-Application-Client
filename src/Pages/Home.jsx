@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <Fade delay={500}>
       <div className={`${isDark ? "bg-gray-800 text-gray-50" : ""}`}>
-        <div className="max-w-6xl mx-auto my-2 px-2">
+        <div className="max-w-6xl mx-auto px-2">
           <div className="text-center text-4xl py-10">Welcome to {text}</div>
           <Banner></Banner>
         </div>

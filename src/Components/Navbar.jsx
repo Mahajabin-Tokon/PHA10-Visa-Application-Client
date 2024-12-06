@@ -27,7 +27,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 theme-controller">
+    <div
+      className={`navbar  theme-controller ${
+        isDark ? "bg-gray-900 text-gray-50" : ""
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -99,7 +103,7 @@ const Navbar = () => {
         onClick={() => setIsDark(!isDark)}
         className="bg-gray-200 p-3 rounded-full m-1"
       >
-        {isDark ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+        {isDark ? <MdOutlineDarkMode className="text-black"/> : <MdOutlineLightMode />}
       </button>
     </div>
   );

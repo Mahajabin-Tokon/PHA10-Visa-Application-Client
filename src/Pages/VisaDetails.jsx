@@ -64,10 +64,7 @@ const VisaDetails = () => {
           <p>{data?.fee}</p>
           <p>{data?.validity}</p>
           <p>{data?.applicationMethod}</p>
-          <p>{data?.applied.date}</p>
-          <p>{data?.applied.firstName}</p>
-          <p>{data?.applied.lastName}</p>
-          <p>{data?.applied.email}</p>
+          
           <div className="card-actions justify-end">
             <button onClick={handleApplyModal} className="btn">
               Apply for Visa

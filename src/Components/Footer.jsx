@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Footer = () => {
+  const { isDark } = useContext(authContext);
   return (
-    <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
+    <footer
+      className={`footer footer-center bg-base-200 text-base-content p-10 ${
+        isDark ? "bg-gray-900 text-gray-50" : ""
+      }`}
+    >
       <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">Contact Us at visapro@gmail.com</a> 
+        <a className="link link-hover">Contact Us at visapro@gmail.com</a>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
